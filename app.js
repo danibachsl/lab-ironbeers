@@ -14,6 +14,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Register the location for handlebars partials here:
 
+hbs.registerPartials(__dirname + "/views/partials");
+
 // ...
 app.get('/beers', (req, res) => {
   punkAPI
