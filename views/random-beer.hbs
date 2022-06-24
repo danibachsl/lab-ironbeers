@@ -1,3 +1,7 @@
 <h2>Here is a random beer!</h2>
 
-{{>randompartial this}}
+{{#each beersFromAPI}}
+
+    {{>randompartial this}}
+
+{{/each}}
