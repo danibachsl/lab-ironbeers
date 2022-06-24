@@ -27,19 +27,19 @@ app.get('/beers', (req, res) => {
   punkAPI
     .getBeers()
     .then(beersFromApi => { // imageURL, name, description y tagline
-      const name = beersFromApi.name;
-      const image = beersFromApi.image_url;
-      const description = beersFromApi.description;
-      const tagline = beersFromApi.tagline;
-
-      res.render('beers.hbs', { beersFromApi: name }, {beersFromApi: image}, {beersFromApi: description}, {beersFromApi: tagline});
+      res.render('beers.hbs', { beersFromApi: beersFromApi })
     })
     .catch(error => console.log(error));
 });
 
-// app.get('/random-beer', (req, res) => {
-//   punkAPI
-//     .
-// });
+app.get('/random-beer', (req, res) => {
+  punkAPI
+  .getRandom()
+  .then(beersFromAPI => {
+    // alert(beer[0].name)
+    res.render('random-beer.hbs', { beersFromAPI : beersFromAPI });
+  })
+  .catch(error => console.log(error));
+});
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));
